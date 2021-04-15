@@ -13,7 +13,9 @@ public class Imc {
     
     
     public double calculo(double peso,double altura){
-        return peso/Math.pow(altura,2);
+        double imc;
+        imc=peso/Math.pow(altura,2);
+        return Math.round(imc * 100d) / 100d;
     }
     
     
