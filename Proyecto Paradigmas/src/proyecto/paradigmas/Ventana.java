@@ -9,19 +9,16 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 /**
@@ -30,7 +27,11 @@ import javax.swing.JTextField;
  */
 public class Ventana extends JFrame {
     
-    private Background fondo =new Background();
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+    private Background fondo=new Background();
     private Imc imc=new Imc();
     private Estadisticas estadisticas=new Estadisticas();
     private int largo = 563, ancho = 1000;
@@ -154,11 +155,11 @@ public class Ventana extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 decimales=imc.calculo(Double.parseDouble(sendPeso.getText()),Double.parseDouble(sendAltura.getText()));
                 if (h.isSelected()==true) {
-                    content="<html><body>El paciente "+sendNombre.getText()+"<br>Tiene un IMC de "+imc.calculo(Double.parseDouble(sendPeso.getText()), Double.parseDouble(sendAltura.getText()))+"<br>lo cual se considera "+estadisticas.Estadisticas("H", decimales)+"</body></html>";
+                    content="<html><body>El paciente "+sendNombre.getText()+"<br>Tiene un IMC de "+imc.calculo(Double.parseDouble(sendPeso.getText()), Double.parseDouble(sendAltura.getText()))+"<br>lo cual se considera "+estadisticas.estadisticas("H", decimales)+"</body></html>";
                     descEstadisticas.setText(content);
                     repaint();
                 }else{
-                    content="<html><body>La paciente "+sendNombre.getText()+"<br>Tiene un IMC de "+imc.calculo(Double.parseDouble(sendPeso.getText()), Double.parseDouble(sendAltura.getText()))+"<br>lo cual se considera "+estadisticas.Estadisticas("M", decimales)+"</body></html>";
+                    content="<html><body>La paciente "+sendNombre.getText()+"<br>Tiene un IMC de "+imc.calculo(Double.parseDouble(sendPeso.getText()), Double.parseDouble(sendAltura.getText()))+"<br>lo cual se considera "+estadisticas.estadisticas("M", decimales)+"</body></html>";
                     descEstadisticas.setText(content);
                     repaint();
                 }
@@ -193,6 +194,10 @@ public class Ventana extends JFrame {
 
     }
     class Background extends JPanel{
+        /**
+         *
+         */
+        private static final long serialVersionUID = 1L;
         private Image imagen;
         @Override
         public void paint(Graphics g){

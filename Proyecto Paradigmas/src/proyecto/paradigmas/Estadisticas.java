@@ -1,9 +1,11 @@
+package proyecto.paradigmas;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyecto.paradigmas;
+
 
 /**
  *
@@ -11,7 +13,7 @@ package proyecto.paradigmas;
  */
 public class Estadisticas {
 
-    public String Estadisticas(String sexo, double imc) {
+    public String estadisticas(String sexo, double imc) {
         if (sexo == "M") {
             if (imc <=16) {
                 return desnutricion();
